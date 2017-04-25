@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Registro Alumnos</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Personas</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Teléfono</string>
+    <string name="correo">Correo electrónico</string>
+    <string name="sexo">Sexo</string>
+    <string name="masculino">Masculino</string>
+    <string name="femenino">Femenino</string>
+    <string name="adicionar">Adicionar alumno</string>
+    <string name="editar">Editar alumno</string>
+    <string name="eliminar">Eliminar alumno</string>
+</resources>

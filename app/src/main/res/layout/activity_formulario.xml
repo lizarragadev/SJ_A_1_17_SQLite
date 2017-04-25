@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/fondo">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/shape"
+        android:layout_margin="6dp">
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+                <EditText
+                    android:id="@+id/cajaNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_marginRight="@dimen/margen"
+                    android:layout_marginTop="@dimen/margen"
+                    android:ems="10"
+                    android:hint="@string/nombre"
+                    android:inputType="textPersonName" >
+
+                    <requestFocus />
+                </EditText>
+
+                <EditText
+                    android:id="@+id/cajaTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_marginRight="@dimen/margen"
+                    android:layout_marginTop="@dimen/margen"
+                    android:ems="10"
+                    android:hint="@string/telefono"
+                    android:inputType="phone" />
+
+                <EditText
+                    android:id="@+id/cajaCorreo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_marginRight="@dimen/margen"
+                    android:layout_marginTop="@dimen/margen"
+                    android:ems="10"
+                    android:hint="@string/correo"
+                    android:inputType="textEmailAddress" />
+
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_marginRight="@dimen/margen"
+                    android:layout_marginTop="@dimen/margen"
+                    android:text="@string/sexo" />
+
+                <RadioGroup
+                    android:id="@+id/grupoRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margen"
+                    android:layout_marginRight="@dimen/margen"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+                    <RadioButton
+                        android:id="@+id/botonRadio1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="@string/masculino" />
+
+                    <RadioButton
+                        android:id="@+id/botonRadio2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/femenino" />
+                </RadioGroup>
+            </LinearLayout>
+        </ScrollView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/botonCancelar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margen"
+                android:layout_marginLeft="@dimen/margen"
+                android:layout_marginTop="@dimen/margen"
+                android:layout_weight="1"
+                android:onClick="cancelar"
+                android:text="@android:string/cancel" />
+
+            <Button
+                android:id="@+id/botonAceptar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margen"
+                android:layout_marginRight="@dimen/margen"
+                android:layout_marginTop="@dimen/margen"
+                android:layout_weight="1"
+                android:onClick="aceptar"
+                android:text="@android:string/ok" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
