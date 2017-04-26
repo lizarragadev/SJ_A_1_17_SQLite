@@ -31,26 +31,45 @@ public class AlumnoDatabaseAdapter {
         databaseHelper.close();
     }
 
-    public long adicionarAlumno(String nombre, long telefono, String correo,
-                                 String sexo) {
-        return 0;
+    public long adicionarAlumno(String nombre, long telefono,
+                                String correo, String sexo) {
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("nombre", nombre);
+        contentValues.put("telefono", telefono);
+        contentValues.put("correo", correo);
+        contentValues.put("sexo", sexo);
+
+        return db.insert("alumno", null, contentValues);
     }
 
-    public int actualizarAlumno(long id, String nombre, long telefono,
-                                 String correo, String sexo) {
-        return 0;
+    public int actualizarAlumno(long id, String nombre,
+                                long telefono, String correo,
+                                String sexo) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("nombre", nombre);
+        contentValues.put("telefono", telefono);
+        contentValues.put("correo", correo);
+        contentValues.put("sexo", sexo);
+
+        return db.update("alumno", contentValues, "_id=?",
+                new String[] { id+"" });
     }
 
     public boolean eliminarAlumno(long id) {
-        return false;
+        return db.delete("alumno", "_id="+id, null) > 0;
     }
 
     public Cursor obtenerAlumno(long id) {
-        return null;
+        return db.query("alumno", new String[] {"_id",
+                "nombre", "telefono", "correo", "sexo"}, "_id=?",
+                new String[] { id+""}, null, null, null);
     }
 
     public Cursor obtenerTodosAlumnos() {
-        return null;
+        return db.query("alumno", new String[] {"_id, " +
+                "nombre", "telefono", "correo", "sexo" },
+                null, null, null, null, null);
     }
 
     private static class AlumnosDatabaseHelper extends SQLiteOpenHelper {
@@ -61,7 +80,9 @@ public class AlumnoDatabaseAdapter {
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
+            db.execSQL("CREATE TABLE alumno (_id INTEGER PRIMARY KEY " +
+                    "AUTOINCREMENT, nombre TEXT NOT NULL, " +
+                    "telefono INTEGER, correo TEXT, sexo TEXT)");
         }
 
         @Override
