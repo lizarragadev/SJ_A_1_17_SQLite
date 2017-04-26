@@ -59,7 +59,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Cursor cursor = db.obtenerTodosAlumnos();
         if (cursor.moveToFirst()) {
             do {
-
+                int id = cursor.getInt(0);
+                String nombre = cursor.getString(1);
+                String telefono = cursor.getString(2);
+                String correo = cursor.getString(3);
+                String sexo = cursor.getString(4);
+                ids.add((long) id);
+                if(sexo.equals("m")) {
+                    adaptadorLista.adicionarItem(R.drawable.ic_man,
+                            nombre, correo);
+                } else {
+                    adaptadorLista.adicionarItem(R.drawable.ic_woman,
+                            nombre, correo);
+                }
             } while (cursor.moveToNext());
         }
         adaptadorLista.notifyDataSetChanged();
